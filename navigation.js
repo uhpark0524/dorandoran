@@ -3,8 +3,18 @@ const screen = frame?.querySelector("img")?.getAttribute("src") || "";
 
 const interactionStyle = document.createElement("style");
 interactionStyle.textContent = `
+  html,body { min-height:100%; overflow-x:hidden; }
+  body { min-height:100svh; }
+  .frame { width:min(100vw,177.7778svh); max-width:100vw; max-height:100svh; }
   .app-hit { position:absolute; z-index:5; display:block; background:transparent; border:0; cursor:pointer; }
   .app-hit:focus-visible { outline:2px solid #fff; outline-offset:3px; }
+  .hotspot,.app-hit,.app-settings,.app-dialog button { -webkit-tap-highlight-color:transparent; transition:transform .18s ease,background .18s ease,box-shadow .18s ease,outline-color .18s ease; }
+  @media (hover:hover) {
+    .hotspot:hover,.app-hit:hover { background:rgba(244,202,99,.16); box-shadow:inset 0 0 0 2px rgba(255,255,255,.88),0 0 18px rgba(244,202,99,.52); border-radius:8px; }
+    .hotspot:hover,.app-hit:hover,.app-settings:hover,.app-dialog button:hover { transform:translateY(-2px); }
+    .volume-row input:hover { filter:brightness(1.18); }
+  }
+  .hotspot:active,.app-hit:active,.app-settings:active,.app-dialog button:active { transform:scale(.97); }
   .app-settings { position:absolute; z-index:8; top:2.4%; right:2.2%; display:inline-flex; align-items:center; gap:.25em; padding:.28em .55em; border:1px solid rgba(255,255,255,.7); border-radius:999px; background:rgba(0,0,0,.28); color:#fff; font-family:"온글잎의연체",sans-serif; font-size:min(2.1vw,3.75vh); line-height:1; text-decoration:none; text-shadow:0 1px 2px rgba(0,0,0,.4); }
   .app-settings:hover, .app-settings:focus-visible { background:rgba(255,255,255,.2); outline:2px solid #fff; outline-offset:3px; }
   .animated-fire { position:absolute; z-index:4; display:block; transform-origin:50% 86%; pointer-events:none; animation:fire-flicker 1.15s ease-in-out infinite alternate; will-change:transform,filter; }
@@ -25,6 +35,15 @@ interactionStyle.textContent = `
   .app-dialog-actions { display:flex; justify-content:flex-end; gap:10px; }.app-dialog button { border:0; border-radius:9px; padding:10px 16px; cursor:pointer; font:inherit; font-size:20px; }.app-cancel { background:#555; color:#fff; }.app-confirm { background:#f4ca63; color:#241b00; }
   .volume-ui { position:absolute; z-index:7; left:70.7%; top:18.7%; width:29.3%; padding:1.1% 1.6%; background:#2e2e2e; color:#fff; font-family:"온글잎의연체",sans-serif; }
   .volume-ui h2 { margin:0 0 .28em; font-weight:400; font-size:min(2.6vw,4.63vh); line-height:1; }.volume-row { display:grid; grid-template-columns:1fr 44% auto; align-items:center; gap:.35em; min-height:2.95vw; font-size:min(2.05vw,3.64vh); line-height:1; white-space:nowrap; }.volume-row input { width:100%; accent-color:#f4ca63; cursor:pointer; }.volume-row output { min-width:2.6em; text-align:right; font-family:Arial,sans-serif; font-size:.72em; }
+  @media (max-width:700px), (max-height:560px) {
+    body { display:grid; place-items:center; background:#111; }
+    .frame { width:100vw; max-width:100vw; max-height:none; }
+    .app-settings { min-height:44px; padding:.4em .65em; font-size:clamp(12px,3.8vw,18px); }
+    .app-toast { bottom:max(24px,env(safe-area-inset-bottom)); font-size:clamp(16px,5vw,22px); padding:12px 18px; }
+    .app-dialog { width:min(92vw,420px); padding:24px; }
+    .app-dialog h2 { font-size:clamp(24px,7vw,30px); }
+    .app-dialog button { min-height:44px; font-size:18px; }
+  }
 `;
 document.head.append(interactionStyle);
 

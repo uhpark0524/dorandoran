@@ -95,7 +95,7 @@ if (screen.includes("04-member") || screen.includes("06-owner") || screen.includ
 if (screen.includes("03-member-menu") || screen.includes("05-owner-menu")) {
   addHit({ left:"71%", top:"59%", width:"15%", height:"6%" }, "신고", reportDialog);
   addHit({ left:"71%", top:"64%", width:"15%", height:"6%" }, "차단", () => confirmationDialog("차단하시겠습니다?", "차단되었습니다."));
-  addHit({ left:"71%", top:"69%", width:"18%", height:"6%" }, "서버 나가기", () => { window.location.href = "main.html"; });
+  addHit({ left:"71%", top:"69%", width:"18%", height:"6%" }, "서버 나가기", () => { window.location.href = "index.html"; });
 
   const volume = document.createElement("section");
   volume.className = "volume-ui";

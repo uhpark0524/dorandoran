@@ -1,77 +1,12 @@
 <!doctype html>
 <html lang="ko">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-    <title>도란도란 | 01 메인</title>
-    <style>
-      @font-face {
-        font-family: "온글잎의연체";
-        src: url("./figma-assets/ownglyph-euiyeon.ttf") format("truetype");
-        font-display: block;
-      }
-      * {
-        box-sizing: border-box;
-      }
-      html,
-      body {
-        width: 100%;
-        height: 100%;
-        margin: 0;
-        background: #111;
-      }
-      body {
-        display: grid;
-        place-items: center;
-        font-family: "온글잎의연체", sans-serif;
-      }
-      .frame {
-        position: relative;
-        width: min(100vw, 177.7778vh);
-        aspect-ratio: 16/9;
-      }
-      .frame img {
-        display: block;
-        width: 100%;
-        height: 100%;
-        object-fit: contain;
-      }
-      .hotspot {
-        position: absolute;
-        z-index: 2;
-        display: block;
-      }
-      .hotspot:focus-visible {
-        outline: 2px solid #fff;
-        outline-offset: 3px;
-      }
-      .join {
-        left: 13%;
-        top: 1.5%;
-        width: 17%;
-        height: 8%;
-      }
-      .create {
-        left: 30%;
-        top: 1.5%;
-        width: 17%;
-        height: 8%;
-      }
-    </style>
-  </head>
-  <body data-next="02-서버목록.html">
-    <div class="frame">
-      <img src="./figma-pages/01-main.png" alt="도란도란 메인 화면" /><a
-        class="hotspot join"
-        href="02-서버목록.html"
-        aria-label="서버참여"
-      ></a
-      ><a
-        class="hotspot create"
-        href="06-서버장.html"
-        aria-label="서버 만들기"
-      ></a>
-    </div>
-    <script src="navigation.js"></script>
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="refresh" content="0; url=main.html">
+  <title>도란도란</title>
+</head>
+<body>
+  <p><a href="main.html">도란도란 메인으로 이동</a></p>
+</body>
 </html>
